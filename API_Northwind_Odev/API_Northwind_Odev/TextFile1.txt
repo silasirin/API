@@ -1,0 +1,29 @@
+﻿1- Models klasoru icerisine Northwind dbFirst ile alindi.
+
+2- db'den cekilen veriler direkt olarak gosterilemiyor. Bu nedenle DTO kullanilir.
+
+*AutoMapper, projemizde Entity nesnelerini database’den cektigimiz haliyle degil, bu nesneleri istedigimiz (UI’da bizim icin gerekli olacak) formata cevirmemizi saglayan basit bir kutuphanedir. DTO (Data Transfer Object) ise AutoMapper’ın donusturmesini istedigimiz format modelidir.
+
+3- ProductDTO adinda bir class acilir ve icerisindeki property'ler database'deki verilerle eslestirilir. Return JSON kodu kullanilarak gosterimi saglanir.
+
+4- Employee tablosu kendi icinde bagli bir tablo oldugundan dolayi gosterimde donguden cikilamiyor. (ReportsTo kismindan dolayi). Bu nedenle EmployeeDTO class'i acildi.
+
+5- Solution'a sagi tik > Web_Client adinda bos bir asp .net projesi acildi. (hicbir sey secilmiyor)
+
+6- html sayfasi acildi, PM'e install-package bootstrap yazarak bootstrap indirildi. Tablo olusturuldu.
+
+7- install-package jquery yazilip indirilir.
+
+*Dunyada en cok kullanılan JavaScript kutuphanesi olan JQuery'in amaci JavaScript dilini internet üzerinden kolayca kullanılabilmeyi saglayan ucretsiz ve acik kaynakli bir teknoloji sunmaktir. 
+
+JQuery'nin sagladigi en buyuk avantajlardan biri tutarli bir sekilde butun tarayicilarda calismasidir, bu sebeple tum ortamlarda rahatlikla kullanilabilme imkani sunmaktadir.
+
+8- Eger disarda bulunan bir Api projesine istekte bulunuluyorsa, "Access-Control-Allow-Origin" hatasi alinabilir. Bu durumda api projesinin oldugu yere: NuGet'tan Microsoft.AspNet.WebApi.Cors kurulumu yapilir. Sonra Api olan projenin App_Start'i icerisinde bulunan WebApiConfig.cs'e gidilir ve Web API configuration and services yazan yorum satirinin altina asagidaki kod yazilir:
+
+            var cors = new EnableCorsAttribute("*", "*", "*");
+            config.EnableCors(cors);
+
+9- Sonrasinda Employee.html'de jquery ile kodlamalar yazildi.
+
+
+

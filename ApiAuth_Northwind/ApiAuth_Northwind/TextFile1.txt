@@ -1,0 +1,11 @@
+﻿-Employee Name kullanarak Authorization ile ProductList cekme:
+
+-Northwind veritabanini kullanarak urunlere ait bir api olustur. calisanlarin adi ve soyadi ile giris yapilsin ve sadece onlar olusturulan apiyi goruntuleyebilsin.
+
+-Models klasoru icerisine DbFirst ile northwind cekildi.
+
+-Entity klasoru olusturulup icerisine EmployeeDTO class'i acildi.
+
+-Filters klasoru olusturulup BasicAuth class'i acildi.
+
+-Client klasoru olusturulup icerisine product adinda html ve js sayfalari acildi. Burada hazirladigimiz auth islemiyle birlikte product list getirilmesi islemleri yapildi.

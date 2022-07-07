@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Employee</title>
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+</head>
+<body>
+    <section class="container">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>FirstName</th>
+                    <th>LastName</th>
+                    <th>Title</th>
+                </tr>
+            </thead>
+            <tbody id="tblEmployee">
+            </tbody>
+        </table>
+    </section>
+
+
+    <script src="Scripts/jquery-3.6.0.js"></script>
+    <script src="Scripts/bootstrap.js"></script>
+
+    <script>
+        //Eger disarda bulunan bir Api projesine istekte bulunuluyorsa, "Access-Control-Allow-Origin" hatasi alinabilir. Bu durumda api projesinin oldugu yere: NuGet'tan Microsoft.AspNet.WebApi.Cors kurulumu yapilir.
+        $(document).ready(function () {
+            $.ajax({
+                method: 'Get',
+                url: 'https://localhost:44361/api/employee'
+
+            }).done(function (response) {
+                for (var i = 0; i < response.length; i++) {
+                    //var tr = "<tr><td>" + response[i].ID + "</td><td>" + response[i].FirstName + "</td><td>" + response[i].LastName + "</td><td>" + response[i].Title + "</td></tr>" //buyuk kucuk harf duyarli, FirstName,ID vs. property ile ayni yazildi.
+
+                    //veya su sekilde de yazilabilir:
+                    var tr =
+                        `<tr>
+                                <td>${response[i].ID}</td>
+                                <td>${response[i].FirstName}</td>
+                                <td>${response[i].LastName}</td>
+                                <td>${response[i].Title}</td>
+                        </tr>`
+                    $('#tblEmployee').append(tr); //$ sellector olarak isimlendirilir. Append -> dahil et olarak kullaniliyor.
+                };
+            })
+        })
+
+
+
+
+    </script>
+</body>
+</html>
